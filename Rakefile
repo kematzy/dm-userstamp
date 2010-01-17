@@ -33,13 +33,8 @@ task :default => :spec
 
 require 'rake/rdoctask'
 Rake::RDocTask.new do |rdoc|
-  if File.exist?('VERSION.yml')
-    config = YAML.load(File.read('VERSION.yml'))
-    version = "#{config[:major]}.#{config[:minor]}.#{config[:patch]}"
-  else
-    version = ""
-  end
-
+  version = File.exist?('VERSION') ? IO.read('VERSION').chomp : "[Unknown]"
+  
   rdoc.rdoc_dir = 'rdoc'
   rdoc.title = "dm-userstamp #{version}"
   rdoc.rdoc_files.include('README*')
