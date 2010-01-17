@@ -30,7 +30,7 @@ module DataMapper
     end
 
     USERSTAMP_PROPERTIES = {
-      :created_by_id => lambda { |r| r.created_by_id = userstamp_class.current_user.id if userstamp_class.current_user && r.new_record? && r.created_by_id.nil? },
+      :created_by_id => lambda { |r| r.created_by_id = userstamp_class.current_user.id if userstamp_class.current_user && r.new? && r.created_by_id.nil? },
       :updated_by_id => lambda { |r| r.updated_by_id = userstamp_class.current_user.id if userstamp_class.current_user}
     }
 
@@ -47,5 +47,5 @@ module DataMapper
     end
   end
 
-  Resource::append_inclusions Userstamp
+  DataMapper::Model.append_inclusions Userstamp
 end

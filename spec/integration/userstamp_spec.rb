@@ -10,7 +10,7 @@ describe 'DataMapper::Userstamp' do
       include DataMapper::Resource
       include DataMapper::Userstamp::Stamper
 
-      property :id, Integer, :serial => true
+      property :id, Serial
       property :name, String
 
       auto_migrate!(:default)
@@ -19,10 +19,10 @@ describe 'DataMapper::Userstamp' do
     class Monkey
       include DataMapper::Resource
 
-      property :id, Integer, :serial => true
+      property :id, Serial
       property :name, String
       property :created_by_id, Integer
-      property :updated_by_id, Integer      
+      property :updated_by_id, Integer
 
       auto_migrate!(:default)
     end
