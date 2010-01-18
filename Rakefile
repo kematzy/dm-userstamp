@@ -9,6 +9,8 @@ begin
     gem.email = "richard@livsey.org"
     gem.homepage = "http://github.com/rlivsey/dm-userstamp"
     gem.authors = ["Richard Livsey"]
+    gem.extra_rdoc_files = %w[ README.rdoc LICENSE TODO History.txt ]
+    gem.add_dependency('dm-core', '>= 0.10.2')
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
 
