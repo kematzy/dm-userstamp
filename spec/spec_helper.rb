@@ -1,5 +1,5 @@
 require 'rubygems'
-gem 'rspec', '>=1.1.3'
+gem 'rspec', '>=1.2.9'
 require 'spec'
 require 'pathname'
 require Pathname(__FILE__).dirname.parent.expand_path + 'lib/dm-userstamp'
@@ -11,7 +11,7 @@ def load_driver(name, default_uri)
   lib = "do_#{name}"
 
   begin
-    gem lib, '>=0.9.10'
+    gem lib, '>=0.10.2'
     require lib
     DataMapper.setup(name, ENV["#{name.to_s.upcase}_SPEC_URI"] || default_uri)
     DataMapper::Repository.adapters[:default] =  DataMapper::Repository.adapters[name]
